@@ -1,33 +1,33 @@
-class Calculator {
+class Calculator {                                                      //Create a calculator class.
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement
         this.currentOperandTextElement = currentOperandTextElement
         this.clear()
     }
 
-    clear() {
+    clear() {                                                        //define the clear function
         this.currentOperand = ''
         this.previousOperand = ''
         this.operation = undefined
     }
 
-    delete() {
+    delete() {                                                         //remove a single number
         this.currentOperand = this.currentOperand.toString().slice(0, -1)
     }
 
-    appendNumber(number) {
-        if (number === '.' && this.currentOperand.includes('.')) return
-        this.currentOperand = this.currentOperand.toString() + number.toString()
+    appendNumber(number) {                                              //add new clicked number to screen
+        if (number === '.' && this.currentOperand.includes('.')) return   //if user enters '.' and the operand has . already, no more 1 period
+        this.currentOperand = this.currentOperand.toString() + number.toString()  // to make sure when you enter 1+1 =11
     }
 
-    chooseOperation(operation) {
-        if (this.currentOperand === '') return
+    chooseOperation(operation) {                                         //pass the operator
+        if (this.currentOperand === '') return    // if this line is true , don't execute further
         if (this.previousOperand !== '') {
-            this.compute()
+            this.compute()                                //when both lines are full, do compute function.
         }
-        this.operation = operation
-        this.previousOperand = this.currentOperand
-        this.currentOperand = ''
+        this.operation = operation  // set the operation
+        this.previousOperand = this.currentOperand  //  move the 2nd line to 1st line of the screen
+        this.currentOperand = ''  // clear the 2nd line
     }
 
     compute() {
@@ -99,7 +99,7 @@ const calculator = new Calculator(previousOperandTextElement, currentOperandText
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         calculator.appendNumber(button.innerText)
-        calculator.updateDisplay()
+        calculator.updateDisplay()          //constantly update the display
     })
 })
 

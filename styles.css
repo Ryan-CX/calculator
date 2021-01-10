@@ -9,7 +9,7 @@
 body {
   padding: 0;
   margin: 0;
-  background: linear-gradient(to right, rgb(243, 173, 184), rgb(150, 203, 228));
+  background: rgba(0, 0, 0, 0.35);
 }
 .calculator-grid {
   display: grid;
@@ -19,16 +19,17 @@ body {
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
+
 .calculator-grid > button {
   cursor: pointer;
   font-size: 2rem;
-  border: 1px solid white;
+  border: 0px;
   outline: none;
-  background-color: lightgray;
+  background-color: rgb(225, 234, 235);
 }
 
 .calculator-grid > button:hover {
-  background-color: rgb(185, 182, 182);
+  background-color: rgb(223, 190, 43);
 }
 .span-two {
   grid-column: span 2;
